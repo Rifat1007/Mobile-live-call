@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b18">
+  <title>Live Chat</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; padding: 24px 14px;
+      display: flex; justify-content: center; align-items: center;
+      font-family: Arial, Helvetica, sans-serif; color: #f7f8ff;
+      background: radial-gradient(ellipse at 50% 0%, #182b53 0%, #080b18 58%);
+    }
+    .page { width: 100%; max-width: 420px; }
+    .panel {
+      padding: 25px 19px 22px; border: 1px solid #202945;
+      border-radius: 26px; background: rgba(10, 15, 33, .96);
+      box-shadow: 0 20px 55px rgba(0,0,0,.4);
+    }
+    .avatar {
+      width: 76px; height: 76px; margin: 0 auto 13px; border-radius: 50%;
+      display: grid; place-items: center; font-size: 32px;
+      background: linear-gradient(135deg, #ff4f91, #7655f5);
+      border: 3px solid rgba(255,255,255,.15);
+    }
+    h1 { text-align: center; font-size: 27px; margin: 0 0 8px; }
+    .subtitle { text-align: center; color: #b6bfd6; font-size: 14px; line-height: 1.5; margin: 0 0 22px; }
+    .status {
+      text-align: center; color: #d8e0f7; background: #141d35;
+      border: 1px solid #202c4b; border-radius: 13px;
+      padding: 12px; font-size: 13px; margin-bottom: 18px;
+    }
+    .action {
+      display: flex; align-items: center; gap: 13px; width: 100%;
+      min-height: 82px; margin: 13px 0; padding: 16px 17px;
+      border-radius: 19px; color: white; text-decoration: none;
+      box-shadow: 0 8px 18px rgba(0,0,0,.18); transition: transform .15s ease;
+    }
+    .action:active { transform: scale(.985); }
+    .action .symbol {
+      flex: 0 0 48px; width: 48px; height: 48px; display: grid; place-items: center;
+      border-radius: 13px; background: rgba(255,255,255,.17); font-size: 24px;
+    }
+    .action .words { flex: 1; min-width: 0; }
+    .action strong { display: block; font-size: 17px; letter-spacing: .2px; }
+    .action small { display: block; margin-top: 5px; font-size: 12px; line-height: 1.35; color: rgba(255,255,255,.85); }
+    .arrow { font-size: 23px; }
+    .pink { background: linear-gradient(115deg, #ee4385, #fa6479); }
+    .purple { background: linear-gradient(115deg, #7251e7, #8d5de9); }
+    .green { background: linear-gradient(115deg, #079d83, #42b95c); }
+    .features {
+      display: flex; justify-content: space-around; gap: 8px;
+      margin-top: 23px; padding-top: 19px; border-top: 1px solid #202945;
+    }
+    .feature { flex: 1; text-align: center; color: #b7c1da; font-size: 11px; line-height: 1.5; }
+    .feature span { display: block; font-size: 19px; margin-bottom: 5px; }
+    .notice { margin: 17px 4px 0; text-align: center; font-size: 11px; line-height: 1.5; color: #8793ae; }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="panel">
+      <div class="avatar" aria-hidden="true">💬</div>
+      <h1>Live Chat</h1>
+      <p class="subtitle">Choose an option below to continue</p>
+      <div class="status">✨ Welcome! Tap a button to get started.</div>
+
+      <!-- Replace each href="#" with your real, trusted destination URL. -->
+      <a class="action pink" href="#" data-link="join">
+        <span class="symbol" aria-hidden="true">📹</span>
+        <span class="words"><strong>JOIN FREE CALL</strong><small>Join a live video call</small></span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a class="action purple" href="#" data-link="chat">
+        <span class="symbol" aria-hidden="true">💬</span>
+        <span class="words"><strong>ROOM CHAT</strong><small>Open the chat room</small></span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a class="action green" href="#" data-link="call">
+        <span class="symbol" aria-hidden="true">📞</span>
+        <span class="words"><strong>FREE CALL</strong><small>Start a voice call</small></span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+
+      <div class="features">
+        <div class="feature"><span>🛡️</span>Use trusted links</div>
+        <div class="feature"><span>⚡</span>Quick access</div>
+        <div class="feature"><span>🔒</span>Protect privacy</div>
+      </div>
+    </section>
+    <p class="notice">Demo layout. Calls and chat will work only after you connect real services and add their links.</p>
+  </main>
+  <script>
+    document.querySelectorAll('a[data-link]').forEach(function (button) {
+      button.addEventListener('click', function (event) {
+        if (button.getAttribute('href') === '#') {
+          event.preventDefault();
+          alert('This button is ready for your link. Edit the href in index.html and add your real service URL.');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
